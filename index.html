@@ -1,1 +1,80 @@
-Hello World
+<html>
+    <head>
+        <title>Calculator by MAJ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+            table{
+                border: 1px solid;
+                margin-left: auto; 
+                margin-right: auto;
+                text-align: center;
+            }
+
+            td{
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td colspan="4" style="text-align: right;"><input type="text" id="result" readonly></td>
+            </tr>
+            <tr>
+                <td><input class="btn-danger" type="button" value="c" onclick="clr()"/></td>
+                <td><button  id="backspace"> < </button></td>
+                <td><input type="button" value="&#247;" onclick="dis('/')"/></td>
+                <td><input type="button" value="x" onclick="dis('*')"/></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="dis('7')"/></td>
+                <td><input type="button" value="8" onclick="dis('8')"/></td>
+                <td><input type="button" value="9" onclick="dis('9')"/></td>
+                <td><input type="button" value="-" onclick="dis('-')"/></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="dis('4')"/></td>
+                <td><input type="button" value="5" onclick="dis('5')"/></td>
+                <td><input type="button" value="6" onclick="dis('6')"/></td>
+                <td><input type="button" value="+" onclick="dis('+')"/></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="dis('1')"/></td>
+                <td><input type="button" value="2" onclick="dis('2')"/></td>
+                <td><input type="button" value="3" onclick="dis('3')"/></td>
+                <td rowspan="2"><input type="button" value="=" onclick="solve()"/></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><button> . </button></td>
+                <td><button> 0 </button></td>
+                <td><button> % </button></td>
+            </tr>
+        </table>
+
+        <script>
+            //function that clear the display
+            function clr()
+            {
+                document.getElementById("result").value = "";
+            }
+
+            //function that display value
+            function dis(val)
+            {
+                document.getElementById("result").value+=val;
+            }
+
+            //function that evaluates the digit and return result
+            function solve()
+            {
+                let x = document.getElementById("result").value;
+                let y = eval(x)
+                document.getElementById("result").value = y;
+            }
+        </script>
+    </body>
+</html>
